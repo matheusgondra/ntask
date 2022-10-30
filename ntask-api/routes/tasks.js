@@ -5,9 +5,12 @@ module.exports = app => {
 		res.json({ status: "NTask API" });
 	});
 
-	app.get("/tasks", (req, res) => {
-		Tasks.findAll({}, (tasks) => {
+	app.get("/tasks", async (req, res) => {
+		try {
+			const tasks = await Tasks.findAll();
 			res.json({ tasks });
-		})
+		} catch (error) {
+			res.status(500).json(error);			
+		}
 	});
 }
