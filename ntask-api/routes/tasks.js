@@ -32,7 +32,7 @@ module.exports = app => {
 				if(result) {
 					res.json(result);
 				} else {
-					res.sendStatus(400);
+					res.sendStatus(404);
 				}
 			} catch (error) {
 				res.status(412).json({ msg: error.message });
