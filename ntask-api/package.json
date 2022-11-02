@@ -4,28 +4,34 @@
   "description": "API de gestão de tarefas",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "npm run apidoc && npm run clusters",
     "dev": "nodemon index.js",
     "test": "set NODE_ENV=test&&mocha test/**/*.js",
-	 "apidoc": "apidoc -i routes/ -o public/apidoc"
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
+    "clusters": "node clusters.js"
   },
   "apidoc": {
-		"name": "Documentação - Node Task API",
-		"template": {
-			"forceLanguage": "pt_br"
-		}
+    "name": "Documentação - Node Task API",
+    "template": {
+      "forceLanguage": "pt_br"
+    }
   },
   "author": "Matheus de Gondra Nascimento",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "compression": "^1.7.4",
     "consign": "^0.1.6",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
+    "helmet": "^6.0.0",
     "jwt-simple": "^0.5.6",
+    "morgan": "^1.10.0",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.0",
     "sequelize": "^6.25.3",
-    "sqlite3": "^5.1.2"
+    "sqlite3": "^5.1.2",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "apidoc": "^0.53.1",
